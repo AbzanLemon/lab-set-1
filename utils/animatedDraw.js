@@ -25,7 +25,7 @@ animateSpeedInput.addEventListener('change', async (event) => {
 let stepButton = document.querySelector('#animateStep');
 stepButton.addEventListener('click', function stepClick() {
     checkpointLimit++;
-    console.log("CP Lim", checkpointLimit, "CP Count", checkpointCount);
+    //console.log("CP Lim", checkpointLimit, "CP Count", checkpointCount);
 });
 
 animateSpeedInput.addEventListener('mousedown', e => e.stopPropagation());
@@ -169,8 +169,7 @@ export function drawWithPause(drawFunc, options={}) {
         }
         if (e == pauseException) {
             for (let frame of e.stack.items) {
-                if (frame.fileRelative.match(/lab[0-9]+\/[0-9]+/)) {
-                    //console.log(frame.file, frame.line)
+                if (frame.fileRelative.match(/lab[0-9]+.*?\/[0-9]+/)) {
                     frame = e.stack.withSource(frame);
                     let newHighlight = `${frame.fileRelative}: ${frame.line}`;
                     if (newHighlight != lastHighlight) {

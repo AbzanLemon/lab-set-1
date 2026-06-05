@@ -1,5 +1,5 @@
 // -------------------------------------------------------
-//  Activity 04: A Lollipop Forest
+//  A Lollipop Forest
 //
 //  
 //

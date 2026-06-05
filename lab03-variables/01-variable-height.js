@@ -1,5 +1,8 @@
 // -------------------------------------------------------
-//  Activity 06: Variable Height Trees
+//  Variable Height Tree
+//
+//  This lab adds a variable in the tree() function. You can
+//  use it in place of a number, and even do math with it
 //
 //  How do I specify the sphere's radius?
 //    https://p5js.org/reference/p5/sphere/

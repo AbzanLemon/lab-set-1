@@ -1,4 +1,4 @@
-import * as activity from "./05-lollipop-pop.js";
+import * as activity from "./01-function-forest.js";
 import { drawGrid } from "@/utils/grid.js";
 import { drawWithPause } from "@/utils/animatedDraw.js";
 import { demoMode } from "@/utils/demoMode";
@@ -18,24 +18,22 @@ export function draw(t) {
 }
 
 function tree() {
-    push();
     translate(0, -50, 0);
     fill(150, 90, 20);
     cylinder(10, 100);
     translate(0, -90, 0);
     fill(50, 180, 50);
     sphere();
-    pop();
 }
 
 function demo() {
     tree();
 
-    translate(120, 0, 0);
+    translate(120, 140, 0);
 
     tree();
 
-    translate(120, 0, 0);
+    translate(120, 140, 0);
 
     tree();
 }

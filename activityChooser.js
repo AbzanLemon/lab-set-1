@@ -49,10 +49,11 @@ const dropdown = document.querySelector('#activityDropdown');
 const loadActivity = async (path) => {
     try {
         const module = await activityModules[path]();
-        console.log('Loaded:', path, module);
+        console.log('Loaded:', path);
         return module;
     } catch (e) {
         console.log(e); //TODO Show on screen
+        throw e;
         localStorage.removeItem('activityPath');
     }
 };

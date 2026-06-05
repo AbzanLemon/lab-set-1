@@ -5,7 +5,6 @@ import { drawGrid } from "./utils/grid.js";
 
 const activity = (await import("./activityChooser.js")).default;
 
-console.log("AAA", activity);
 // -------------------------------------------------------
 //  The runner — students don't need to touch any of this.
 //  It handles setup, lighting, camera, and the draw loop.
