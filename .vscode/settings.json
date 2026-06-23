@@ -16,5 +16,7 @@
         "comments": "off",
         "strings": "off",
         "other": "off"
-    }
+    },
+    "js/ts.suggest.enabled": false,
+    "chat.disableAIFeatures": true
 }

@@ -12,6 +12,6 @@ export function draw() {
     //4️⃣ Draw a sphere
 
     //5️⃣ Repeat steps 3 and 4 over and over again until you have 10
-    //  evenly spaced spheres
+    //  evenly spaced spheres. YOU MAY COPY AND PASTE, I GUESS.
 
 }

@@ -39,11 +39,14 @@ async function setup() {
 
 
 const start = Date.now();
+let last = start;
 
 async function draw() {
   try {
-   activity.draw((Date.now() - start) / 1000);
-  } catch (e){
+    let now = Date.now();
+    activity.draw((now - start) / 1000, (now - last) / 1000);
+    last = now;
+  } catch (e) {
     noLoop();
     throw e;
   }

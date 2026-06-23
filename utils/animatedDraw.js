@@ -62,7 +62,7 @@ function smoothstep(t) {
     return Math.pow(s, 2);  // increase exponent for stronger ease
 }
 
-let funcNames = ["translate", "rotateX", "rotateY", "rotateZ", "cylinder", "sphere", "scale", "push", "pop", "fill", "line"];
+let funcNames = ["translate", "rotateX", "rotateY", "rotateZ", "cylinder", "sphere", "scale", "push", "pop", "fill", "line", "cone"];
 let oldFuncs = {};
 function wrap() {
     for (let name of funcNames) {
@@ -103,6 +103,9 @@ function wrap() {
 
             case "push":
                 window[name] = function () {
+                    for (let i = 0; i < 50; i++) {
+                        pause(1);
+                    }
                     oldFunc();
                     stack.push([..._renderer.uModelMatrix.mat4]);
                     pause(10);
@@ -171,6 +174,7 @@ export function drawWithPause(drawFunc, options={}) {
         }
         if (e == pauseException) {
             for (let frame of e.stack.items) {
+                console.log(frame.fileRelative);
                 if (frame.fileRelative.match(/lab[0-9]+.*?\/[0-9]+/)) {
                     frame = e.stack.withSource(frame);
                     let newHighlight = `${frame.fileRelative}: ${frame.line}`;

@@ -10,8 +10,8 @@ export function setup() {
 export function draw(t) {
     orbitControl();
     background(100, 110, 180);
-    ambientLight(100);
-    directionalLight(255, 255, 255, 1, 1, -1);
+    ambientLight(120);
+    directionalLight(255, 255, 255, 1, 3, -1);
     
     if ( !demo )
         drawGrid();
@@ -53,7 +53,10 @@ function demo() {
 
     translate(0, -140, 0);
     fill(200, 200, 200, 100);
+    specularMaterial(20,20,20);
+    shininess(190);
     sphere(310);
+    specularMaterial(0);
 }
 
 function pineTree() {
