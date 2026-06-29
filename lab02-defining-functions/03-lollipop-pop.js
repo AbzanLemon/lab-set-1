@@ -9,7 +9,7 @@
 // -------------------------------------------------------
 
 export function draw() {
-    //This is probably what you have from activity 4, but I have
+    //This is probably what you have from the last activity, but I have
     //made each translte between trees take two steps, one back
     //to the ground, and one to the right
 
