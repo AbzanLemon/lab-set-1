@@ -10,13 +10,43 @@ export function setup() {
 }
 
 export function draw(t, dt) {
-    scale(100);
+    scale(50);
     showTime(t);
     orbitControl();
     background(30);
     ambientLight(80);
     directionalLight(255, 255, 255, 1, 1, -1);
     drawGrid(10, 10);
+
+    push()
+    translate(0,-10,0);
+    drawGrid(10, 10, [60, 60, 60]);
+    pop();
+
+    push();
+    translate(5,-5,0);
+    rotateZ(90);
+    drawGrid(10, 10, [60, 60, 60]);
+    pop();
+
+    push();
+    translate(-5,-5,0);
+    rotateZ(90);
+    drawGrid(10, 10, [60, 60, 60]);
+    pop();
+
+    push();
+    translate(0,-5,5);
+    rotateX(90);
+    drawGrid(10, 10, [60, 60, 60]);
+    pop();
+    
+    push();
+    translate(0,-5,-5);
+    rotateX(90);
+    drawGrid(10, 10, [60, 60, 60]);
+    pop();
+
     noStroke();
     window.sin = Math.sin;
     if (demoMode) {
@@ -28,7 +58,7 @@ export function draw(t, dt) {
 
 
 let position = vector(5, -4, 0);
-let velocity = vector(-5, 0, 3.5);
+let velocity = vector(-5, -8, 3.5);
 
 let position2 = vector(-2, -3, 0);
 let velocity2 = vector(-4, 0, 4.2);
@@ -40,6 +70,10 @@ export function demo(t, dt) {
     velocity = velocity.plus(gravity.times(dt));
     if (position.y >= 0) {
         position.y = 0;
+        velocity.y = -velocity.y;
+    }
+    if (position.y <= -10) {
+        position.y = -10;
         velocity.y = -velocity.y;
         velocity.y = velocity.y;
     }
@@ -61,7 +95,7 @@ export function demo(t, dt) {
     }
     push();
     translate(position.x, position.y, position.z);
-    velocity = velocity.times(0.999);
+    //velocity = velocity.times(0.999);
     fill(50, 255, 50);
     sphere(.3);
     pop();
@@ -72,6 +106,10 @@ export function demo(t, dt) {
         position2.y = 0;
         velocity2.y = -velocity2.y;
         velocity2.y = velocity2.y;
+    }
+    if (position2.y <= -10) {
+        position2.y = -10;
+        velocity2.y = -velocity2.y;
     }
     if (position2.x > 5) {
         position2.x = 5;
@@ -91,7 +129,7 @@ export function demo(t, dt) {
     }
     push();
     translate(position2.x, position2.y, position2.z);
-    velocity2 = velocity2.times(0.999);
+    //velocity2 = velocity2.times(0.999);
     fill(50, 50, 255);
     sphere(.3);
     pop();
